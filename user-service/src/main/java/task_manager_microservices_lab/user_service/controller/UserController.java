@@ -59,4 +59,19 @@ public class UserController implements HealthIndicator {
             return ResponseEntity.badRequest().build();
         }
     }
+	
+	@PostMapping("/register")
+    public ResponseEntity<User> resgister(@RequestBody User user) {
+        try {
+            User savedUser = userRepository.save(user);
+            return ResponseEntity.ok(savedUser);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+	
+	@PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody User user) {
+            return null;
+    }
 }
